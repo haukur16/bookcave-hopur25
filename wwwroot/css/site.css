@@ -88,6 +88,10 @@
     #footer-copyright {
         width: 100%;
     }
+    
+    #main-search {
+        width: 100%;
+    }
 }
 
 #footer-copyright {
@@ -101,6 +105,8 @@
     border: none;
     cursor: pointer;
     width: auto;
+    border: 3px solid #93919648;
+    border-radius: 70px;
 }
 
 #login-button:hover {
@@ -172,7 +178,7 @@ span.psw {
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 10% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+    margin: 5% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 50%; 
 }
@@ -231,4 +237,37 @@ span.psw {
 
 .modal button:hover {
     opacity: 0.8;
+}
+
+#signup-button {
+    display: block;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#signup-button:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.social-media img {
+    float: right;
+    height: 60px;
+    width: 60px;
+}
+
+.social-media img:hover {
+    opacity: 0.6;
+}
+
+.social-media a {
+    float: right;
+    height: 60px;
+    width: 60px;
 }

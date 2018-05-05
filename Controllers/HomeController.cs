@@ -22,5 +22,10 @@ namespace BookCave.Controllers
             var authors = _authorService.GetAllAuthors();
             return View(authors);
         }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
     }
 }
