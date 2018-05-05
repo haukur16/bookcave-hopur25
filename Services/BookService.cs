@@ -18,5 +18,18 @@ namespace BookCave.Services
 
       return books;
     }
+
+    public List<BookListViewModel> GetBookById(int? Id)
+    {
+      var book = _bookRepo.GetBookById(Id);
+
+      return book;
+    }
+    public List<BookListViewModel> GetTopTenBooks(int Id)
+    {
+      var book = _bookRepo.GetTopTenBooks(Id);
+
+      return book;
+    }
   }
 }

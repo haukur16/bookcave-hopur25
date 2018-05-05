@@ -66,7 +66,7 @@
 <div>
     @foreach(var book in @Model)
     {
-        <p>Title: @book.Title</p>
+        <p>Title: <a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId">@book.Title</a></p>
         <p>Genre: @book.Genre</p>
         <p>Author: @book.Author</p>
         <p>Relese Year: @book.ReleseYear</p>
