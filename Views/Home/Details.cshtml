@@ -1,10 +1,15 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
-<div>
+<div class="details-page">
   @foreach(var book in @Model)
     {
-        <p>Title: @book.Title</p>
-        <p>Genre: @book.Genre</p>
-        <p>Author: @book.Author</p>
+        <img id="details-cover" src="@book.Photo" />
+        <div class="book-details">
+        <h2>@book.Title</h2>
+        <p><b>Genre: </b>@book.Genre</p>
+        <p><b>Author: </b>@book.Author</p>
+        <p><b>Relese Year: </b>@book.ReleseYear</p>
+        <p><b>Rating: </b>@book.Rating</p>
+        </div>
         <br>
     }
 </div>
