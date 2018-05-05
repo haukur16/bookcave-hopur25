@@ -1,0 +1,39 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CREATE USER</h1>
+
+<div class="input-container">
+    <form>
+        <h4>USER INFO</h4>
+        <label for="first-name"><b>Firstname</b></label>
+        <input class="login-input" type="text" placeholder="Enter first name" name="fname" required>
+        <label for="lname"><b>Last name</b></label>
+        <input class="login-input" type="text" placeholder="Enter last name" name="lname" required>
+
+        <hr>
+        <h4>ACCOUNT INFO</h4>
+        <label for="uname"><b>Username</b></label>
+        <input class="login-input" type="text" placeholder="Enter Username" name="uname" required>
+        <label for="psw"><b>Password</b></label>
+        <input class="login-input" type="password" placeholder="Enter Password" name="psw" required>
+        <label for="psw2"><b>Confirm password</b></label>
+        <input class="login-input" type="password" placeholder="Retype Password" name="psw2" required>
+        
+        <hr>
+        <h4>BILLING INFO</h4>
+        <label for="country"><b>Country</b></label>
+        <input class="login-input" type="text" placeholder="Enter country" name="country" required>
+        <label for="city"><b>City</b></label>
+        <input class="login-input" type="text" placeholder="Enter city" name="city" required>
+        <label for="zipcode"><b>Zipcode/Postcode</b></label>
+        <input class="login-input" type="text" placeholder="Enter zipcode/postcode" name="zipcode" required>
+        <label for="adress"><b>Adress</b></label>
+        <input class="login-input" type="text" placeholder="Enter adress" name="adress" required>
+        <label for="phone"><b>Phonenumber</b></label>
+        <input class="login-input" type="text" placeholder="Enter phonenumber" name="phone" required>
+
+        <a id="signup-button" asp-area="" asp-controller="Home" asp-action="Register">Sign up</a>
+    </form>
+</div>
