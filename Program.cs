@@ -30,13 +30,13 @@ namespace BookCave
         {
            var db = new DataContext();
             
-                var initialBooks = new List<Book>()
+                var initialAuthors = new List<Author>()
                     {
-                        new Book {Title = "Harry Potter and the Philosopher's Stone", Genre = "Fantasy", ReleseYear = 2015, AuthorId = 1},
-                        new Book {Title = "Fantastic Beasts and Where to Find Them : The Original Screenplay", Genre = "Fantasy", ReleseYear = 2016, AuthorId = 1},
-                        new Book {Title = "Harry Potter and the Prisoner of Azkaban : Illustrated Edition", Genre = "Fantasy", ReleseYear = 2017, AuthorId = 1}
+                        new Author {Name = "Julia Donaldson"},
+                        new Author {Name = "David Walliams"},
+                        new Author {Name = "Dr. Seuss"}
                     };
-                    db.AddRange(initialBooks);
+                    db.AddRange(initialAuthors);
                     db.SaveChanges();
         }
     }

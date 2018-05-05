@@ -41,6 +41,8 @@ namespace BookCave.Migrations
 
                     b.Property<string>("Genre");
 
+                    b.Property<double>("Rating");
+
                     b.Property<int>("ReleseYear");
 
                     b.Property<string>("Title");
@@ -48,6 +50,20 @@ namespace BookCave.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("BookCave.Data.EntityModels.UserLogin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Password");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserLogins");
                 });
 #pragma warning restore 612, 618
         }

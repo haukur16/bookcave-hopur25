@@ -9,18 +9,18 @@ using BookCave.Services;
 
 namespace BookCave.Controllers
 {
-    public class BookController : Controller
+    public class AuthorController : Controller
     {
-        private BookService _bookService;
+        private AuthorService _authorService;
 
-        public BookController()
+        public AuthorController()
         {
-            _bookService = new BookService();
+            _authorService = new AuthorService();
         }
         public IActionResult Index()
         {
-            var books = _bookService.GetAllBooks();
-            return View(books);
+            var authors = _authorService.GetAllAuthors();
+            return View(authors);
         }
 
        
