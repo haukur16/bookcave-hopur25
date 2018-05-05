@@ -7,6 +7,8 @@ namespace BookCave.Data.EntityModels
     public string Genre {get; set; }
     public int ReleseYear {get; set; }
     public int AuthorId {get; set; }
+    public double Rating {get; set; }
+    public string Photo {get; set; }
 
   }
 }

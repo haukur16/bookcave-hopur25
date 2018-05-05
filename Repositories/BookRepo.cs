@@ -25,7 +25,9 @@ namespace BookCave.Repositories
                     Genre = a.Genre,
                     ReleseYear = a.ReleseYear,
                     Author = b.Name,
-                    AuthorId = b.Id
+                    AuthorId = b.Id,
+                    Rating = a.Rating,
+                    Photo = a.Photo
                   }).ToList();
       return books;
     }

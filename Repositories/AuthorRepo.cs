@@ -19,7 +19,7 @@ namespace BookCave.Repositories
       var authors = (from a in _db.Authors
                   select new AuthorListViewModel
                   {
-                    Id = a.Id,
+                    AuthorId = a.Id,
                     Name = a.Name
                   }).ToList();
       return authors;
