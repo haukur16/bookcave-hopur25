@@ -31,5 +31,11 @@ namespace BookCave.Services
 
       return book;
     }
+
+    public List<BookListViewModel> GetBookByLayoutSearch(string layoutsearch)
+    {
+        var book = _bookRepo.GetBookByLayoutSearch(layoutsearch);
+        return book;
+    }
   }
 }

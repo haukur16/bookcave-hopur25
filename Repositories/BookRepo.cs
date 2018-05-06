@@ -50,6 +50,7 @@ namespace BookCave.Repositories
 				}).ToList();
         return books;
     }
+    
     public List<BookListViewModel> GetTopTenBooks(int Id)
     {
       var topbook = (from a in _db.Books
@@ -67,6 +68,29 @@ namespace BookCave.Repositories
                     Photo = a.Photo
                     }).Take(10).ToList();
         return topbook;
-    } 
+    }
+
+    public List<BookListViewModel> GetBookByLayoutSearch(string layoutsearch)
+    {
+      var layoutresults = (from a in _db.Books
+                          join b in _db.Authors on a.AuthorId equals b.Id
+                          select new BookListViewModel
+                          {
+                          BookId = a.Id,
+                          Title = a.Title,
+                          Genre = a.Genre,
+                          ReleseYear = a.ReleseYear,
+                          Author = b.Name,
+                          AuthorId = b.Id,
+                          Rating = a.Rating,
+                          Photo = a.Photo
+                          }
+      );
+      if (!string.IsNullOrEmpty(layoutsearch))
+      {
+        layoutresults = layoutresults.Where(a => a.Title.Contains(layoutsearch));
+      }
+      return layoutresults.ToList();
+    }
   }
 }

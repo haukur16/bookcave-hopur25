@@ -21,9 +21,9 @@
     height: auto;
 }
 
-#main-search {
+#layoutsearch {
     float: right;
-    width: 130px;
+    width: 200px;
     box-sizing: border-box;
     background-color: #222222;
     border-radius: 10px;
@@ -37,7 +37,7 @@
     border: 3px solid #93919648;
 }
 
-#main-search:focus {
+#layoutsearch:focus {
     width: 70%;
     background-color: white;
 }
@@ -322,4 +322,65 @@ span.psw {
 .book-details {
     display: inline-block;
     border: 2px solid rgb(47, 17, 219)
+}
+
+#add-to-cart {
+    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    border-radius: 10px;
+    font-size: 16px;
+    background: linear-gradient(#222222ce, #222222);
+}
+
+#add-to-cart:hover {
+    background: linear-gradient(#222222, #222222ce);
+}
+
+.detailed-search input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.detailed-search .select {
+    display: inline-block;
+    width: 33%;
+}
+
+.select label {
+    text-align: center;
+    width: 100%;
+}
+
+.detailed-search select {
+    display: block;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    box-sizing: border-box;
+}
+
+.detailed-search #search-button {
+    display: block;
+    text-align: center;
+    background-color: #222222;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.detailed-search #search-button:hover {
+    text-decoration: none;
+    opacity: 0.8;
 }
