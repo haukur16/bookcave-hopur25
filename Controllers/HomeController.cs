@@ -31,13 +31,13 @@ namespace BookCave.Controllers
 
             if (Id == null)
             {
-                return View("notfound");
+                return View("NotFound");
             }
 
             var books = _bookService.GetBookById(Id);
             if(books == null)
             {
-                return View("notfound");
+                return View("NotFound");
             }
             return View(books);
         }
@@ -51,6 +51,10 @@ namespace BookCave.Controllers
         public IActionResult QuickSearch(string layoutsearch)
         {
             var books = _bookService.GetBookByLayoutSearch(layoutsearch);
+            if(!books.Any())
+            {
+                return View("NotFound");
+            }
             return View(books);
         }
 
@@ -59,9 +63,5 @@ namespace BookCave.Controllers
             var books = _bookService.GetTopTenBooks(Id);
             return View(books);
         }
-
-
-
-        
     }
 }
