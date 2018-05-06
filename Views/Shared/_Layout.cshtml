@@ -35,12 +35,15 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Search">Catalogue</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="TopTenBooks">Top 10</a></li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
                     <input id="main-search" type="text" name="search" placeholder="Search..">
+                    <form methot="GET" asp-controller="Home" asp-action="QuickSearch">
+                        <input id="layoutsearch" type="text" name="layoutsearch" placeholder="Quick title search..">
+                        <input type="submit" style="position: absolute; left: -9999px"/>
+                    </form>
                 </div>
             </div>
         </div>
