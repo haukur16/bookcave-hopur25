@@ -48,6 +48,12 @@ namespace BookCave.Controllers
             return View(books);
         }
 
+        public IActionResult QuickSearch(string layoutsearch)
+        {
+            var books = _bookService.GetBookByLayoutSearch(layoutsearch);
+            return View(books);
+        }
+
         public IActionResult TopTenBooks(int Id)
         {
             var books = _bookService.GetTopTenBooks(Id);
