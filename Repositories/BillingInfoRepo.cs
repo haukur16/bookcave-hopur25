@@ -29,6 +29,6 @@ namespace BookCave.Repositories
                     ZipCode = a.ZipCode
                   }).ToList();
       return billingInfo;
-    }
   }
+}
 }
