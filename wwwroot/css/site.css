@@ -323,3 +323,17 @@ span.psw {
     display: inline-block;
     border: 2px solid rgb(47, 17, 219)
 }
+
+#add-to-cart {
+    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    border-radius: 10px;
+    font-size: 16px;
+    background: linear-gradient(#222222ce, #222222);
+}
+
+#add-to-cart:hover {
+    background: linear-gradient(#222222, #222222ce);
+}
