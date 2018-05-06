@@ -337,3 +337,50 @@ span.psw {
 #add-to-cart:hover {
     background: linear-gradient(#222222, #222222ce);
 }
+
+.detailed-search input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.detailed-search .select {
+    display: inline-block;
+    width: 33%;
+}
+
+.select label {
+    text-align: center;
+    width: 100%;
+}
+
+.detailed-search select {
+    display: block;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    box-sizing: border-box;
+}
+
+.detailed-search #search-button {
+    display: block;
+    text-align: center;
+    background-color: #222222;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.detailed-search #search-button:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}

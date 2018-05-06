@@ -1,12 +1,50 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
 
-<h1>Search</h1>
 <form class="detailed-search">
-    <label for=""
-    <label for="filter">Search by</label>
-    <select name="filter" id="search-by">
-        <option id="title" value="title" >Title</option>
-        <option id="author" value="author" >Author</option>
-        <option id="" value=""></option>
-    </select>
+    <label for="title-search">Title: </label>
+    <input type="text" name="title-search" id="book-title" placeholder="Enter book title..">
+
+    <label for="author-search">Author: </label>
+    <input name="author-search" id="author-search" placeholder="Enter author..">
+
+    <div class="select">
+        <label for="filter-genre">Genre:</label>
+        <select name="filter-genre" id="genre-filter">
+            <option value="0" selected="selected">All</option>
+            <option value="fantasy" >Fantasy</option>
+            <option value="storybook" >Storybook</option>
+            <option value="scifi">Sci-Fi</option>
+            <option value="horror">Horror</option>
+            <option value="fiction">Fiction</option>
+            <option value="nonfiction">Non Fiction</option>
+            <option value="action">Action</option>
+        </select>
+    </div>
+
+    <div class="select">
+        <label for="rating">Rating:</label>
+        <select name="rating">
+            <option value="0" selected="selected">All</option>
+            <option value="9">9+</option>
+            <option value="8">8+</option>
+            <option value="7">7+</option>
+            <option value="6">6+</option>
+            <option value="5">5+</option>
+            <option value="4">4+</option>
+            <option value="3">3+</option>
+            <option value="2">2+</option>
+            <option value="1">1+</option>
+        </select>
+    </div>
+
+    <div class="select">
+        <label for="order-by">Order by:</label>
+        <select name="order-by">
+            <option value="alphabetical">Alphabetical</option>
+            <option value="year">Year</option>
+            <option value="rating">Rating</option>
+            <option value="price">Price</option>
+        </select>
+    </div>
+    <input type="submit" value="Search" id="search-button">
 </form>
