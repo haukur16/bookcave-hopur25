@@ -39,10 +39,9 @@
                         <li><a asp-area="" asp-controller="Home" asp-action="TopTenBooks">Top 10</a></li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
-                    <input id="main-search" type="text" name="search" placeholder="Search..">
                     <form methot="GET" asp-controller="Home" asp-action="QuickSearch">
                         <input id="layoutsearch" type="text" name="layoutsearch" placeholder="Quick title search..">
-                        <input type="submit" style="position: absolute; left: -9999px"/>
+                        <input type="submit" onClick="return empty()" style="position: absolute; left: -9999px"/>
                     </form>
                 </div>
             </div>
