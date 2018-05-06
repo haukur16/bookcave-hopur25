@@ -65,11 +65,15 @@ namespace BookCave.Migrations
 
                     b.Property<string>("Photo");
 
+                    b.Property<double>("Price");
+
                     b.Property<double>("Rating");
 
                     b.Property<int>("ReleseYear");
 
                     b.Property<string>("Title");
+
+                    b.Property<string>("details");
 
                     b.HasKey("Id");
 

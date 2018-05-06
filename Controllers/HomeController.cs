@@ -42,6 +42,12 @@ namespace BookCave.Controllers
             return View(books);
         }
 
+        public IActionResult Search()
+        {
+            var books = _bookService.GetAllBooks();
+            return View(books);
+        }
+
         public IActionResult TopTenBooks(int Id)
         {
             var books = _bookService.GetTopTenBooks(Id);
