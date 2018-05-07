@@ -307,6 +307,10 @@ span.psw {
     text-overflow: ellipsis;
 }
 
+#index-price {
+    color: darkred;
+}
+
 #details-cover {
     width: 30%;
     height: 100%;
@@ -385,7 +389,6 @@ span.psw {
     opacity: 0.8;
 }
 
-<<<<<<< HEAD
 #not-found-home-button {
     display: block;
     text-align: center;
@@ -400,5 +403,3 @@ span.psw {
 #not-found-home-button:hover {
     opacity: 0.8;
 }
-=======
->>>>>>> 2b75317de6c30af4f3029beac94bee05d24a8472
