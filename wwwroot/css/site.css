@@ -367,6 +367,10 @@ span.psw {
     margin-right: 5%;
     box-sizing: border-box;
 }
+.detailed-search #search-button:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
 
 .detailed-search #search-button {
     display: block;
@@ -380,25 +384,33 @@ span.psw {
     width: 100%;
 }
 
-.detailed-search #search-button:hover {
-    text-decoration: none;
-    opacity: 0.8;
+.index-books{
+    display:none;
+    padding: 10px;
+    margin-bottom: 5px;
 }
-
-<<<<<<< HEAD
-#not-found-home-button {
+#booksFront{
     display: block;
-    text-align: center;
-    background-color: #222222;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    width: 100%;
+}
+#moreBooksButton {
+    padding: 10px;
+    display: block;
+    background-color: #33739E;
+    color: #fff;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    -moz-transition: all 600ms ease-in-out;
+    -o-transition: all 600ms ease-in-out;
 }
 
-#not-found-home-button:hover {
-    opacity: 0.8;
+#moreBooksButton:hover {
+    background-color: #fff;
+    color: #33739E;
 }
-=======
->>>>>>> 2b75317de6c30af4f3029beac94bee05d24a8472
+
+
+
