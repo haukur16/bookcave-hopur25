@@ -392,6 +392,9 @@ span.psw {
 #booksFront{
     display: block;
 }
+.boldText{
+    font-weight: 200;
+}
 #moreBooksButton {
     padding: 10px;
     display: block;
@@ -439,3 +442,11 @@ span.psw {
     width: 85%;
     height: 100%;
 }
+
+#moreBooksButton:hover {
+    background-color: #fff;
+    color: #33739E;
+}
+
+
+
