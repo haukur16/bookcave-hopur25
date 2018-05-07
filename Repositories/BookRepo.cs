@@ -27,7 +27,9 @@ namespace BookCave.Repositories
                     Author = b.Name,
                     AuthorId = b.Id,
                     Rating = a.Rating,
-                    Photo = a.Photo
+                    Photo = a.Photo,
+                    Price = a.Price,
+                    details = a.details
                   }).ToList();
       return books;
     }
@@ -46,7 +48,9 @@ namespace BookCave.Repositories
                     Author = b.Name,
                     AuthorId = b.Id,
                     Rating = a.Rating,
-                    Photo = a.Photo
+                    Photo = a.Photo,
+                    Price = a.Price,
+                    details = a.details
 				}).ToList();
         return books;
     }
@@ -65,7 +69,9 @@ namespace BookCave.Repositories
                     Author = b.Name,
                     AuthorId = b.Id,
                     Rating = a.Rating,
-                    Photo = a.Photo
+                    Photo = a.Photo,
+                    Price = a.Price,
+                    details = a.details
                     }).Take(10).ToList();
         return topbook;
     }
@@ -83,7 +89,9 @@ namespace BookCave.Repositories
                           Author = b.Name,
                           AuthorId = b.Id,
                           Rating = a.Rating,
-                          Photo = a.Photo
+                          Photo = a.Photo,
+                          Price = a.Price,
+                          details = a.details
                           });
                           if (!string.IsNullOrEmpty(titleSearch))
                           {
@@ -111,9 +119,13 @@ namespace BookCave.Repositories
                             {
                               catalogresults = catalogresults.OrderByDescending(a => a.ReleseYear);
                             }
-                            else if (orderBy == "title")
+                            else if (orderBy == "PriceH2L")
                             {
-                              catalogresults = catalogresults.OrderBy(a => a.Title);
+                              catalogresults = catalogresults.OrderByDescending(a => a.Price);
+                            }
+                            else if (orderBy == "PriceL2H")
+                            {
+                              catalogresults = catalogresults.OrderBy(a => a.Price);
                             }
                           }
       return catalogresults.ToList();
@@ -132,7 +144,9 @@ namespace BookCave.Repositories
                           Author = b.Name,
                           AuthorId = b.Id,
                           Rating = a.Rating,
-                          Photo = a.Photo
+                          Photo = a.Photo,
+                          Price = a.Price,
+                          details = a.details
                           }
       );
       if (!string.IsNullOrEmpty(layoutsearch))
