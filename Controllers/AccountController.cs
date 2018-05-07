@@ -70,6 +70,12 @@ namespace BookCave.Controllers
             
         }
 
+        public IActionResult UserInfo()
+        {
+            return View();
+        }
+        
+
         public IActionResult AccessDenied()
         {
             return View();

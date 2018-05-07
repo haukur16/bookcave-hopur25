@@ -1,0 +1,24 @@
+@model BookCave.Models.ViewModels.BillingInfoViewModel
+
+<h1>CREATE USER</h1>
+
+<form asp-action="UserInfo" asp-controller="Account" class="form-horizontal">
+  <div class = "form-group">
+    <input type="text" asp-for="StreetName" class="form-control" placeholder="Enter Street Name" />
+  </div>
+  <div class = "form-group">
+    <input type="number" asp-for="HouseNumber" class="form-control" placeholder="Enter HouseNumber" />
+  </div>
+  <div class = "form-group">
+    <input type="text" asp-for="City" class="form-control" placeholder="Enter City" />
+  </div>
+  <div class = "form-group">
+    <input type="text" asp-for="Country" class="form-control" placeholder="Enter Country" />
+  </div>
+  <div class = "form-group">
+    <input type="number" asp-for="ZipCode" class="form-control" placeholder="Enter ZipCode" />
+  </div>
+  <div class = "form-group">
+    <button type="submit" class="btn btn-default">Register</button>
+  </div>
+</form>

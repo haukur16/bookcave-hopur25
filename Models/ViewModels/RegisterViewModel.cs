@@ -4,7 +4,7 @@ namespace BookCave.Models.ViewModels
 {
   public class RegisterViewModel
   {
-    //public int UserId {get; set; }
+    public int UserId {get; set; }
     [Required]
     [EmailAddress]
     public string Email {get; set; }
