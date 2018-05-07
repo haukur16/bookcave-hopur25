@@ -70,6 +70,55 @@ namespace BookCave.Repositories
         return topbook;
     }
 
+    public List<BookListViewModel> CatalogSearch(string titleSearch, string authorSearch, string filterGenre, double rating, string orderBy)
+    {
+      var catalogresults = (from a in _db.Books
+                          join b in _db.Authors on a.AuthorId equals b.Id
+                          select new BookListViewModel
+                          {
+                          BookId = a.Id,
+                          Title = a.Title,
+                          Genre = a.Genre,
+                          ReleseYear = a.ReleseYear,
+                          Author = b.Name,
+                          AuthorId = b.Id,
+                          Rating = a.Rating,
+                          Photo = a.Photo
+                          });
+                          if (!string.IsNullOrEmpty(titleSearch))
+                          {
+                            catalogresults = catalogresults.Where(a => a.Title.Contains(titleSearch));
+                          }
+                          if (!string.IsNullOrEmpty(authorSearch))
+                          {
+                            catalogresults = catalogresults.Where(b => b.Author.Contains(authorSearch));
+                          }
+                          if (!string.IsNullOrEmpty(filterGenre))
+                          {
+                            catalogresults = catalogresults.Where(a => a.Genre.Contains(filterGenre));
+                          }
+                          if (rating != 0)
+                          {
+                            catalogresults = catalogresults.Where(a => a.Rating >= rating);
+                          }
+                          if (!string.IsNullOrEmpty(orderBy))
+                          {
+                            if (orderBy == "Rating")
+                            {
+                              catalogresults = catalogresults.OrderByDescending(a => a.Rating);
+                            }
+                            else if (orderBy == "Releaseyear")
+                            {
+                              catalogresults = catalogresults.OrderByDescending(a => a.ReleseYear);
+                            }
+                            else if (orderBy == "title")
+                            {
+                              catalogresults = catalogresults.OrderBy(a => a.Title);
+                            }
+                          }
+      return catalogresults.ToList();
+    }
+
     public List<BookListViewModel> GetBookByLayoutSearch(string layoutsearch)
     {
       var layoutresults = (from a in _db.Books

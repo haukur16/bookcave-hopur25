@@ -42,9 +42,9 @@ namespace BookCave.Controllers
             return View(books);
         }
 
-        public IActionResult Search()
+        public IActionResult Search(string titleSearch, string authorSearch, string filterGenre, double rating, string orderBy)
         {
-            var books = _bookService.GetAllBooks();
+            var books = _bookService.CatalogSearch(titleSearch, authorSearch, filterGenre, rating, orderBy);
             return View(books);
         }
 

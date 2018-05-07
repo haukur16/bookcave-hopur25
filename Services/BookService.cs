@@ -32,6 +32,12 @@ namespace BookCave.Services
       return book;
     }
 
+    public List<BookListViewModel> CatalogSearch(string titleSearch, string authorSearch, string filterGenre, double rating, string orderBy)
+    {
+        var book = _bookRepo.CatalogSearch(titleSearch, authorSearch, filterGenre, rating, orderBy);
+        return book;
+    }
+
     public List<BookListViewModel> GetBookByLayoutSearch(string layoutsearch)
     {
         var book = _bookRepo.GetBookByLayoutSearch(layoutsearch);

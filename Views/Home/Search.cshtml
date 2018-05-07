@@ -1,16 +1,16 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
 
 <form class="detailed-search">
-    <label for="title-search">Title: </label>
-    <input type="text" name="title-search" id="book-title" placeholder="Enter book title..">
+    <label for="titleSearch">Title: </label>
+    <input type="text" name="titleSearch" id="book-title" placeholder="Enter book title..">
 
-    <label for="author-search">Author: </label>
-    <input name="author-search" id="author-search" placeholder="Enter author..">
+    <label for="authorSearch">Author: </label>
+    <input name="authorSearch" id="author-search" placeholder="Enter author..">
 
     <div class="select">
-        <label for="filter-genre">Genre:</label>
-        <select name="filter-genre" id="genre-filter">
-            <option value="0" selected="selected">All</option>
+        <label for="filterGenre">Genre:</label>
+        <select name="filterGenre" id="genre-filter">
+            <option value="" selected="selected">All</option>
             <option value="fantasy" >Fantasy</option>
             <option value="storybook" >Storybook</option>
             <option value="scifi">Sci-Fi</option>
@@ -38,13 +38,30 @@
     </div>
 
     <div class="select">
-        <label for="order-by">Order by:</label>
-        <select name="order-by">
-            <option value="alphabetical">Alphabetical</option>
-            <option value="year">Year</option>
-            <option value="rating">Rating</option>
-            <option value="price">Price</option>
+        <label for="orderBy">Order by:</label>
+        <select name="orderBy">
+            <option value="Releaseyear" selected="selected">Most recent</option>
+            <option value="Rating">Rating</option>
+            <option value="Price">Price</option>
+            <option value="">None</option>
         </select>
     </div>
     <input type="submit" value="Search" id="search-button">
 </form>
+
+<div >
+    @foreach(var book in @Model)
+    {
+        <div class="index-books">
+            <div id="index-cover">
+                <img src="@book.Photo">
+            </div>
+            <div class="index-details">
+                <p id="index-book-title" ><a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId">@book.Title</a></p>
+                <p>Author: @book.Author</p>
+                <p>Rating: @book.Rating</p>
+                <button id="add-to-cart">Add to cart</button>
+            </div>
+        </div>
+    }
+</div>

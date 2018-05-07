@@ -384,3 +384,18 @@ span.psw {
     text-decoration: none;
     opacity: 0.8;
 }
+
+#not-found-home-button {
+    display: block;
+    text-align: center;
+    background-color: #222222;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 100%;
+}
+
+#not-found-home-button:hover {
+    opacity: 0.8;
+}
