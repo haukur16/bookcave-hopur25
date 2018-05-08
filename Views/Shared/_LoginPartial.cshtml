@@ -27,21 +27,21 @@
   </form>
   -->
   <ul class="nav navbar-nav navbar-right">
-  <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@claim <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-  <form asp-action="UserInfo" asp-controller="Account">
-  <li><button class="btn btn-link navbar-btn navbar-link">User Settings</button></li>
-  </form>
-  <form asp-action="" asp-controller="Account">
-  <li><button class="btn btn-link navbar-btn navbar-link">Previous orders</button></li>
-  </form>
-  <li role="separator" class="divider"></li>
-  <form asp-action="SignOut" asp-controller="Account" method="POST">
-  <li><button type="submit" class="btn btn-link navbar-btn navbar-link">Log Out</button></li>
-  </form>
-  </ul>
-  </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@claim <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <form asp-action="UserInfo" asp-controller="Account">
+          <li><button class="btn btn-link navbar-btn navbar-link">User Settings</button></li>
+        </form>
+        <form asp-action="" asp-controller="Account">
+          <li><button class="btn btn-link navbar-btn navbar-link">Previous orders</button></li>
+        </form>
+          <li role="separator" class="divider"></li>
+        <form asp-action="SignOut" asp-controller="Account" method="POST">
+          <li><button type="submit" class="btn btn-link navbar-btn navbar-link">Log Out</button></li>
+        </form>
+      </ul>
+    </li>
   </ul>
 
 }

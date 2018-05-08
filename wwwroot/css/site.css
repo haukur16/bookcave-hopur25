@@ -38,7 +38,7 @@
 }
 
 #layoutsearch:focus {
-    width: 70%;
+    width: 50%;
     background-color: white;
 }
 
@@ -446,6 +446,10 @@ span.psw {
 #moreBooksButton:hover {
     background-color: #fff;
     color: #33739E;
+}
+
+.dropdown-menu {
+    background-color: #222222;
 }
 
 
