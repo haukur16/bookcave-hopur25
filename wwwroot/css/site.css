@@ -277,13 +277,13 @@ span.psw {
 .index-books {
     display: inline-block;
     width: 24%;
-    height: 400px;
+    height: 450px;
     border: 2px solid rgb(175, 22, 22)
 }
 
 #index-cover {
     width:  100%;
-    height: 70%;
+    height: 65%;
     border: 2px solid rgb(17, 219, 135);
 }
 
@@ -296,7 +296,7 @@ span.psw {
 
 .index-details {
     height: auto;
-    min-height: 30%;
+    min-height: 35%;
     border: 2px solid rgb(17, 20, 219)
 }
 
@@ -315,13 +315,14 @@ span.psw {
 }
 
 .details-page {
-    
     border: 2px solid rgb(28, 194, 36)
 }
 
 .book-details {
-    display: inline-block;
-    border: 2px solid rgb(47, 17, 219)
+    float: right;
+    border: 2px solid rgb(165, 175, 22);
+    width: 70%;
+    height: 100%;
 }
 
 #add-to-cart {
@@ -385,7 +386,7 @@ span.psw {
 }
 
 .index-books{
-    display:none;
+    display: none;
     padding: 10px;
     margin-bottom: 5px;
 }

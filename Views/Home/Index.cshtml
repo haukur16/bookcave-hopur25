@@ -27,7 +27,7 @@
             <div class="carousel-caption" role="option">
                 <p>
                     Take a look at our collection of books by David Walliams 
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
+                    <a class="btn btn-default" asp-controller="Home" asp-action="Search" asp-route-titleSearch="" asp-route-authorSearch="Walliams" asp-route-filterGenre="" asp-route-rating="" asp-route-orderBy="Releaseyear" >
                         Here
                     </a>
                 </p>
@@ -37,7 +37,7 @@
             <img src="~/images/banner4.jpg" alt="Microsoft Azure" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
+                    <a class="btn btn-default" asp-controller="Home" asp-action="Search" asp-route-titleSearch="" asp-route-authorSearch="" asp-route-filterGenre="fantasy" asp-route-rating="" asp-route-orderBy="Releaseyear" >
                         Browse the fantasy section
                     </a>
                 </p>
@@ -66,6 +66,10 @@
                 <p id="index-book-title" ><a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId">@book.Title</a></p>
                 <p>Author: @book.Author</p>
                 <p>Rating: @book.Rating</p>
+                <div class="price-and-cart">
+                    <p id="index-price">$@book.Price</p>
+                    <button id="add-to-cart">Add to cart</button>
+                </div>
             </div>
         </div>
     }

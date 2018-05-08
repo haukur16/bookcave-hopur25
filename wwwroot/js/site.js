@@ -7,7 +7,7 @@ function empty() {
         return false;
     };
 }
-
+/*
 $(function () {
     $(".index-books").slice(0, 8).show();
     $("#moreBooksButton").on('click', function (e) {
@@ -20,4 +20,18 @@ $(function () {
             scrollTop: $(this).offset().top
         }, 1500);
     });
-});
+});*/
+
+$( document ).ready(function () {
+    $(".index-books").slice(0, 8).css("display","inline-block");
+      if ($(".index-books:hidden").length != 0) {
+        $("#moreBooksButton").show();
+      }   
+      $("#moreBooksButton").on('click', function (e) {
+        e.preventDefault();
+        $(".index-books:hidden").slice(0, 8).slideDown().css("display","inline-block");
+        if ($(".index-books:hidden").length == 0) {
+          $("#moreBooksButton").fadeOut('slow');
+        }
+      });
+    });
