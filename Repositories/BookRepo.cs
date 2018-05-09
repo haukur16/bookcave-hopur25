@@ -158,6 +158,10 @@ namespace BookCave.Repositories
                             {
                               catalogresults = catalogresults.OrderBy(a => a.Price);
                             }
+                            else if (orderBy == "Alpha")
+                            {
+                              catalogresults = catalogresults.OrderBy(a => a.Title);
+                            }
                           }
       return catalogresults.ToList();
     }

@@ -504,6 +504,7 @@ span.psw {
     position: relative;
 }
 
+<<<<<<< HEAD
 #detail-price{
     margin: 10px 10px;
     font-size: 30px;
@@ -520,3 +521,10 @@ span.psw {
     background-color: #5cb85c;
     border-color: #4cae4c;
 }
+=======
+#no-reviews {
+    width: 100%;
+    text-align: center;
+}
+
+>>>>>>> b1460d878d14583179fc6860798ee0759a473a67

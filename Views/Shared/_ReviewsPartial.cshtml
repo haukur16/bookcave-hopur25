@@ -13,8 +13,14 @@
     {
         <div id="inputarea">
             <label for="reviewBox"></label>
-            <input type="text" name="reviewBox" id="review-box" placeholder="Leave a short review" maxlength="70">
+            <input type="text" name="reviewBox" id="review-box" placeholder="Leave a review as @claim" maxlength="70">
         </div>
+        <input type="hidden" name="userId" value="@claim">
+        foreach (var book in @Model)
+        {
+            <input type="hidden" name="bookId" value="@book.BookId">
+            break;
+        }
         <div id="the-count">
             <span id="current">0</span>
             <span id="maximum">/ 70</span>
