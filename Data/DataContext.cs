@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using BookCave.Data.EntityModels;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace BookCave.Data
 {
@@ -11,8 +13,13 @@ namespace BookCave.Data
     public DbSet<Billinginfo> BillingInfo {get; set; }
     public DbSet<BookReviews> BookReviews {get; set; }
 
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+      var builder = new ConfigurationBuilder()
+      .SetBasePath(Directory.GetCurrentDirectory())
+      .AddJsonFile("appsettings.Json");
+      var configuration = builder.Build();
       optionsBuilder
       .UseSqlServer(
         "Server=tcp:verklegt2.database.windows.net,1433;Initial Catalog=VLN2_2018_H25;Persist Security Info=False;User ID=VLN2_2018_H25_usr;Password=r!chCard14;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
