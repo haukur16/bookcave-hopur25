@@ -29,7 +29,7 @@ namespace BookCave.Controllers
         }
 
         [HttpGet]
-        public IActionResult Details(int? Id, int bookId, int rating, string userId, string reviewBox)
+        public IActionResult Details(int? Id)
         {
             //var books = _bookService.GetBookById(Id);
             //return View(books);
@@ -44,9 +44,6 @@ namespace BookCave.Controllers
             {
                 return View("NotFound");
             }
-            
-            //var reviews = _reviewsService.GetReviewsForBook(Id);
-            // Program.PostBookReview(bookId, rating, userId, reviewBox);
 
             return View(books);
         }

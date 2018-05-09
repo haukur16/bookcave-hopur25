@@ -36,7 +36,7 @@ $( document ).ready(function () {
       });
     });
 
-    $('.reviews input').keyup(function() {
+    $('.reviews #BookReview').keyup(function() {
     
         var characterCount = $(this).val().length,
             current = $('#current'),
