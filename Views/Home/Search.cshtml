@@ -56,15 +56,15 @@
     {
         <div class="index-books">
             <div id="index-cover">
-                <img src="@book.Photo">
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId"><img src="@book.Photo"></a>
             </div>
             <div class="index-details">
                 <p id="index-book-title" ><a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId">@book.Title</a></p>
                 <p>Author: @book.Author</p>
                 <p>Rating: @book.Rating</p>
                 <div class="price-and-cart">
-                    <p id="index-price">$@book.Price</p>
-                    <button id="add-to-cart">Add to cart</button>
+                    <p  id="index-price">$@book.Price</p>
+                    <button class="btn-success" id="add-to-cart">Add to cart</button>
                 </div>
             </div>
         </div>
