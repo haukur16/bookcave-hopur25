@@ -5,7 +5,7 @@
     {
         <div class="top-ten-list">
             <div id="top-ten-list-cover">
-                <img src="@book.Photo" />
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId"><img src="@book.Photo"></a>
             </div>
             <div class="top-ten-list-info">
                 <h2><a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId">@book.Title</a> (@book.ReleseYear) @book.Rating</h2>

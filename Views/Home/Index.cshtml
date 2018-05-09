@@ -60,7 +60,7 @@
     {
         <div class="index-books">
             <div id="index-cover">
-                <img src="@book.Photo">
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId"><img src="@book.Photo"></a>
             </div>
             <div class="index-details">
                 <p id="index-book-title" ><a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId">@book.Title</a></p>
