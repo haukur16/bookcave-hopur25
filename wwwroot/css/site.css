@@ -453,5 +453,53 @@ span.psw {
     background-color: #222222;
 }
 
+.reviews {
+    display: inline-block;
+    width: 100%;
+}
+.reviews #inputarea {
+    display: inline-block;
+    width: 80%;
+}
 
+.reviews input{
+    width: 100%;
+    padding: 15px 15px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#the-count {
+    display: inline-block;
+    width: 10%;
+    padding: 15px;
+    font-size: 25px;
+}
+
+#rating {
+    display: inline-block;
+    width: 8%;
+}
+
+#rating label{
+    font-size: 25px;
+}
+
+#rating select{
+    width: 100%;
+}
+
+.user-reviews {
+    width: 100%;
+    border: 1px solid #222222;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 10px
+
+}
+
+#user-email{
+    float: right;
+    position: relative;
+}
 

@@ -35,3 +35,37 @@ $( document ).ready(function () {
         }
       });
     });
+
+    $('.reviews input').keyup(function() {
+    
+        var characterCount = $(this).val().length,
+            current = $('#current'),
+            maximum = $('#maximum'),
+            theCount = $('#the-count');
+          
+        current.text(characterCount);
+
+        if (characterCount < 50) {
+            current.css('color', '#000');
+            current.css('font-weight', 'normal');
+        }
+
+        if (characterCount > 50) {
+            current.css('color', '#ee7600');
+            current.css('font-weight', 'normal');
+        }
+        if (characterCount > 60 && characterCount < 70) {
+            current.css('color', '#841c1c');
+            current.css('font-weight', 'normal');
+        }
+        if (characterCount == 70) {
+            maximum.css('color', '#8f0001');
+            current.css('color', '#8f0001');
+            theCount.css('font-weight','bold');
+        } 
+        else {
+            maximum.css('color','#000');
+            theCount.css('font-weight','normal');
+        }
+              
+    });

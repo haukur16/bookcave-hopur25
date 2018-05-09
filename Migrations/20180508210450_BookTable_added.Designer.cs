@@ -11,7 +11,7 @@ using System;
 namespace BookCave.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180506173334_BookTable_added")]
+    [Migration("20180508210450_BookTable_added")]
     partial class BookTable_added
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,6 +79,24 @@ namespace BookCave.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("BookCave.Data.EntityModels.BookReviews", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BookId");
+
+                    b.Property<string>("BookReview");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<int>("UserRating");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BookReviews");
                 });
 
             modelBuilder.Entity("BookCave.Data.EntityModels.UserLogin", b =>

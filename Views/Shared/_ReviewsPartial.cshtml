@@ -1,0 +1,41 @@
+@using BookCave.Models
+@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims;
+
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+  var claim = ((ClaimsIdentity) User.Identity).Claims.FirstOrDefault(c => c.Type == "Name")?.Value;
+}
+
+<div class="reviews">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div id="inputarea">
+            <label for="reviewBox"></label>
+            <input type="text" name="reviewBox" id="review-box" placeholder="Leave a short review" maxlength="70">
+        </div>
+        <div id="the-count">
+            <span id="current">0</span>
+            <span id="maximum">/ 70</span>
+        </div>
+        <div id="rating">
+            <label for="rating">Rating</label>
+            <select name="rating" id="select-rating">
+                <option value="10" selected="selected">10</option>
+                <option value="9">9</option>
+                <option value="8">8</option>
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <form method="POST">
+            <input type="submit" value="Submit">
+        </form>
+    }
+</div>

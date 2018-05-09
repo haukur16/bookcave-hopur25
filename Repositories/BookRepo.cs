@@ -36,12 +36,19 @@ namespace BookCave.Repositories
 
     public List<BookListViewModel> GetBookById(int? Id)
     {
+      var hasreview = from r in _db.BookReviews
+                      where r.BookId == Id
+                      select r;
+
+      if(hasreview.Any())
+      {
 	      var books = (from a in _db.Books
 				join b in _db.Authors on a.AuthorId equals b.Id
+        join r in _db.BookReviews on a.Id equals r.BookId
 				where a.Id == Id
 				select new BookListViewModel
 				{
-					BookId = a.Id,
+					          BookId = a.Id,
                     Title = a.Title,
                     Genre = a.Genre,
                     ReleseYear = a.ReleseYear,
@@ -50,9 +57,33 @@ namespace BookCave.Repositories
                     Rating = a.Rating,
                     Photo = a.Photo,
                     Price = a.Price,
-                    details = a.details
+                    details = a.details,
+                    UserId = r.UserId,
+                    UserRating = r.UserRating,
+                    BookReview = r.BookReview
 				}).ToList();
         return books;
+      }
+      else 
+      {
+        var books = (from a in _db.Books
+				join b in _db.Authors on a.AuthorId equals b.Id
+				where a.Id == Id
+				select new BookListViewModel
+				{
+					          BookId = a.Id,
+                    Title = a.Title,
+                    Genre = a.Genre,
+                    ReleseYear = a.ReleseYear,
+                    Author = b.Name,
+                    AuthorId = b.Id,
+                    Rating = a.Rating,
+                    Photo = a.Photo,
+                    Price = a.Price,
+                    details = a.details,
+				}).ToList();
+        return books;
+      }
     }
     
     public List<BookListViewModel> GetTopTenBooks(int Id)

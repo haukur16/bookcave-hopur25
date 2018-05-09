@@ -13,6 +13,7 @@ namespace BookCave.Controllers
     public class HomeController : Controller
     {
         private BookService _bookService;
+        private ReviewService _reviewsService;
 
         public HomeController()
         {
@@ -39,6 +40,9 @@ namespace BookCave.Controllers
             {
                 return View("NotFound");
             }
+            
+            //var reviews = _reviewsService.GetReviewsForBook(Id);
+
             return View(books);
         }
 
