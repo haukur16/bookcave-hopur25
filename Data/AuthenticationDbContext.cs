@@ -1,6 +1,7 @@
-using BookCave.Models;
+﻿using BookCave.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using BookCave.Models.ViewModels;
 namespace BookCave.Data
 {
     public class AuthenticationDbContext : IdentityDbContext<ApplicationUser>
@@ -11,5 +12,7 @@ namespace BookCave.Data
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<BookCave.Models.ViewModels.BookReviewModel> BookReviewModel { get; set; }
     }
 }

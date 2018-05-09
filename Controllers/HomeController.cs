@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using BookCave.Models;
 using BookCave.Services;
 using Microsoft.AspNetCore.Authorization;
+using BookCave.Models.ViewModels;
 
 namespace BookCave.Controllers
 {
@@ -18,13 +19,17 @@ namespace BookCave.Controllers
         public HomeController()
         {
             _bookService = new BookService();
-        }
+			_reviewsService = new ReviewService();
+
+		}
         public IActionResult Index()
         {
             var books = _bookService.GetAllBooks();
             return View(books);
         }
-        public IActionResult Details(int? Id)
+
+        [HttpGet]
+        public IActionResult Details(int? Id, int bookId, int rating, string userId, string reviewBox)
         {
             //var books = _bookService.GetBookById(Id);
             //return View(books);
@@ -41,11 +46,27 @@ namespace BookCave.Controllers
             }
             
             //var reviews = _reviewsService.GetReviewsForBook(Id);
+            // Program.PostBookReview(bookId, rating, userId, reviewBox);
 
             return View(books);
         }
 
-        public IActionResult Search(string titleSearch, string authorSearch, string filterGenre, double rating, string orderBy)
+		[HttpPost]
+		public IActionResult Details(BookReviewModel model)
+		{
+			//var books = _bookService.GetBookById(Id);
+			//return View(books);
+
+			_reviewsService.CreateReview(model);
+
+            var books = _bookService.GetAllBooks();
+
+
+			return View("Index", books);
+		}
+
+
+		public IActionResult Search(string titleSearch, string authorSearch, string filterGenre, double rating, string orderBy)
         {
             var books = _bookService.CatalogSearch(titleSearch, authorSearch, filterGenre, rating, orderBy);
             return View(books);
