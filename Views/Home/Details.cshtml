@@ -1,4 +1,5 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
+
 <div class="details-page">
   @foreach(var book in @Model)
     {
@@ -11,6 +12,18 @@
         <p><b>Rating: </b>@book.Rating</p>
         <p><b>Description: </b>@book.details</p>
         </div>
-        <br>
     }
+</div>
+
+@await Html.PartialAsync("_ReviewsPartial")
+
+<div>
+         @foreach(var review in @Model)
+         {
+            <div class="user-reviews">
+                <p id="user-email">@review.UserId</p>
+                <p><b>User Rating: </b>@review.UserRating</p>
+                <p>@review.BookReview</p>
+            </div>
+         }
 </div>

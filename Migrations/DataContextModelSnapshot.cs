@@ -80,6 +80,24 @@ namespace BookCave.Migrations
                     b.ToTable("Books");
                 });
 
+            modelBuilder.Entity("BookCave.Data.EntityModels.BookReviews", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BookId");
+
+                    b.Property<string>("BookReview");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<int>("UserRating");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BookReviews");
+                });
+
             modelBuilder.Entity("BookCave.Data.EntityModels.UserLogin", b =>
                 {
                     b.Property<int>("Id")

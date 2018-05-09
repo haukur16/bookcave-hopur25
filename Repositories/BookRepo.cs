@@ -38,10 +38,11 @@ namespace BookCave.Repositories
     {
 	      var books = (from a in _db.Books
 				join b in _db.Authors on a.AuthorId equals b.Id
+        join r in _db.BookReviews on a.Id equals r.BookId
 				where a.Id == Id
 				select new BookListViewModel
 				{
-					BookId = a.Id,
+					          BookId = a.Id,
                     Title = a.Title,
                     Genre = a.Genre,
                     ReleseYear = a.ReleseYear,
@@ -50,7 +51,10 @@ namespace BookCave.Repositories
                     Rating = a.Rating,
                     Photo = a.Photo,
                     Price = a.Price,
-                    details = a.details
+                    details = a.details,
+                    UserId = r.UserId,
+                    UserRating = r.UserRating,
+                    BookReview = r.BookReview
 				}).ToList();
         return books;
     }
