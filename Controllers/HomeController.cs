@@ -24,7 +24,6 @@ namespace BookCave.Controllers
             var books = _bookService.GetAllBooks();
             return View(books);
         }
-
         public IActionResult Details(int? Id)
         {
             //var books = _bookService.GetBookById(Id);
