@@ -23,7 +23,10 @@
          {
              @if(@review.UserRating == 0)
              {
-                 break;
+                <div class="user-reviews">
+                    <p id="no-reviews"><b>No reviews yet</b></p>
+                </div>
+                break;
              }
              else 
              {
