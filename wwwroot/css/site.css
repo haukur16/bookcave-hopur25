@@ -315,14 +315,15 @@ span.psw {
 }
 
 .details-page {
-    border: 2px solid rgb(28, 194, 36)
+    border: 2px solid rgb(28, 194, 36);
 }
 
 .book-details {
     float: right;
     border: 2px solid rgb(165, 175, 22);
-    width: 70%;
+    width: 68%;
     height: 100%;
+    
 }
 
 #add-to-cart {
@@ -503,3 +504,27 @@ span.psw {
     position: relative;
 }
 
+<<<<<<< HEAD
+#detail-price{
+    margin: 10px 10px;
+    font-size: 30px;
+    color: coral;
+    display: inline;
+}
+
+#add-to-cart-btn{
+    display:  inline-block;
+    width: 200px;
+    height: 40px;
+    margin: 10px 10px;
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+=======
+#no-reviews {
+    width: 100%;
+    text-align: center;
+}
+
+>>>>>>> b1460d878d14583179fc6860798ee0759a473a67

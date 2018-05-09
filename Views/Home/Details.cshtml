@@ -11,7 +11,10 @@
         <p><b>Relese Year: </b>@book.ReleseYear</p>
         <p><b>Rating: </b>@book.Rating</p>
         <p><b>Description: </b>@book.details</p>
+        <p id="detail-price">$@book.Price</p>
+        <button id="add-to-cart-btn">Add to cart</button>
         </div>
+
         break;
     }
 </div>
@@ -23,7 +26,10 @@
          {
              @if(@review.UserRating == 0)
              {
-                 break;
+                <div class="user-reviews">
+                    <p id="no-reviews"><b>No reviews yet</b></p>
+                </div>
+                break;
              }
              else 
              {

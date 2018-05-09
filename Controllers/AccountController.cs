@@ -1,7 +1,9 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
+using authentication_repo.Models.ViewModels;
 using BookCave.Models;
 using BookCave.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -79,6 +81,33 @@ namespace BookCave.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        public async Task<IActionResult> MyProfile()
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            return View(new ProfileViewModel {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                FavoriteBook = user.FavoriteBook,
+                Age = user.Age
+            });
+        }
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> MyProfile(ProfileViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Age = model.Age;
+            user.FavoriteBook = model.FavoriteBook;
+
+            await _userManager.UpdateAsync(user);
+
+            return View(model);
         }
 
     }
