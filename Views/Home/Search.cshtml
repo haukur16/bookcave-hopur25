@@ -2,13 +2,8 @@
 
 <form class="detailed-search">
     <label for="titleSearch">Title: </label>
-    <input type="text" name="titleSearch" id="book-title" placeholder="Enter book title.." list="Books">
-        <datalist id="Books">
-        @foreach(var book in @Model)
-        {
-            <option>@book.Title</option>
-        }
-        </datalist> 
+    <input type="text" name="titleSearch" id="book-title" placeholder="Enter book title..">
+
     <label for="authorSearch">Author: </label>
     <input name="authorSearch" id="author-search" placeholder="Enter author.." list="Authors">
         <datalist id="Authors">

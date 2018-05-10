@@ -6,6 +6,7 @@ using BookCave.Helpers;
 using BookCave.Data;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using System;
 
 namespace BookCave.Controllers
 {
@@ -22,11 +23,6 @@ namespace BookCave.Controllers
             ViewBag.total = cart.Sum(i => i.Book.Price * i.Quantity);
             return View();
         }
-        public async Task<IActionResult> GetUserId()
-        {
-            var user = await _signinUser.GetUserAsync(User);
-            return View();
-        }            
         [Route("buy/{id}")]
         public IActionResult Buy(int id)
         {
