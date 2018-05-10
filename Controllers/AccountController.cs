@@ -1,6 +1,9 @@
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using authentication_repo.Models.ViewModels;
+using BookCave.Data.EntityModels;
+using BookCave.Helpers;
 using BookCave.Models;
 using BookCave.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -82,7 +85,8 @@ namespace BookCave.Controllers
         {
             return View();
         }
-
+        [HttpGet]
+        [Authorize]
         public async Task<IActionResult> MyProfile()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -109,6 +113,5 @@ namespace BookCave.Controllers
 
             return View(model);
         }
-
     }
 }
