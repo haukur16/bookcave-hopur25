@@ -72,8 +72,10 @@ namespace BookCave.Controllers
             
         }
 
-        public IActionResult UserInfo()
+        public IActionResult ViewProfile()
         {
+            //var profile = _userManager.GetUserInfo();
+
             return View();
         }
         

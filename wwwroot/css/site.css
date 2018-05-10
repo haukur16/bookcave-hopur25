@@ -135,10 +135,12 @@
     object-fit: contain;
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
-    border: 2px solid rgb(145, 17, 219)
+    border: 2px solid rgb(145, 17, 219);
+
 }
 
 #index-cover img:hover {
+    filter: saturate(0);
     -webkit-filter: saturate(1.7);
 }
 
