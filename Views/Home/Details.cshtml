@@ -19,7 +19,7 @@
         <p><b>Rating: </b>@book.Rating</p>
         <p><b>Description: </b>@book.details</p>
         <p id="detail-price">$@book.Price</p>
-        <button id="add-to-cart-btn">Add to cart</button>
+        <button id="add-to-cart-btn"><a asp-controller="cart" asp-action="buy" asp-route-id="@book.BookId">Add to cart</a></button>
         </div>
         break;
     }
