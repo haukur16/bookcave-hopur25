@@ -380,22 +380,6 @@
 .cart-table th{
     text-align: center;
 }
-<<<<<<< HEAD
-#favButton{
-    display: inline-block;
-    width: 20px;
-    height: 10px;
-}
-#fav-button{
-    display:  inline-block;
-    width: 200px;
-    height: 40px;
-    margin: 10px 10px;
-    color: #fff;
-    background-color: #5bc0de;
-    border-color: #46b8da;
-}
-=======
 
 .cart-table a{
     text-decoration: none;
@@ -406,4 +390,3 @@
     font-size: 20px;
  }
 
->>>>>>> 6ad8ef68dc3ca78772d9e808496afd9cabf924b3
