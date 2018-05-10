@@ -1,12 +1,13 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using BookCave.Models;
 using BookCave.Helpers;
 using BookCave.Data;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System;
+using BookCave.Models.EntityModels;
+using BookCave.Models;
 
 namespace BookCave.Controllers
 {

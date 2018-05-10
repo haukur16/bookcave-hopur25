@@ -35,4 +35,31 @@
             </tr>
         </tbody>
     </table>
+<div>
+    <div class="cart-page">
+        <h3>Cart Info</h3>
+        <table class="cart-table">
+            <tr>
+                <th>Action</th>
+                <th>Photo</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            @{double total = 0;}
+            @foreach (var item in ViewBag.cart)
+            {
+            <tr>
+            <td><button><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Book.Id">Remove</a></button></td>
+            <td><img src="@item.Book.Photo" width="50"></td>
+            <td>@item.Book.Title</td>
+            <td>@item.Book.Price</td>
+            <td>@item.Quantity</td>
+            </tr>
+                total += item.Book.Price;
+            }
+        </table>
+        <h2 id="price-total">Total: <b>@total</b></h2>
+        <button><a>Go to checkout</a></button>
+    </div>
 </div>

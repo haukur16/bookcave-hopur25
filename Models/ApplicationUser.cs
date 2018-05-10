@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
 namespace BookCave.Models
@@ -8,5 +9,6 @@ namespace BookCave.Models
         public string LastName {get; set; }
         public string FavoriteBook {get; set; }
         public int Age {get; set; }
+
     }
 }
