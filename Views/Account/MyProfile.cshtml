@@ -8,11 +8,29 @@
     <input type="text"  class="form-control" asp-for="LastName" placeholder="Enter your last name" value="@Model.LastName" />
   </div>
   <div class = "form-group">
-    <input type="text"  list="favbook" class="form-control" asp-for="FavoriteBook" placeholder="Enter your favorite book" value="@Model.FavoriteBook" />
+    <input type="text" class="form-control" asp-for="FavoriteBook" placeholder="Enter your favorite book" value="@Model.FavoriteBook" />
   </div>
   <div class = "form-group">
     <input type="number" min="0" class="form-control" asp-for="Age" placeholder="Enter your age" value="@Model.Age" />
   </div>
+  <div class = "form-group">
+    <input type="text" class="form-control" asp-for="StreetName" placeholder="Enter your street name" value="@Model.StreetName" />
+  </div>
+  <div class = "form-group">
+    <input type="number" class="form-control" asp-for="HouseNumber" placeholder="Enter your house number" value="@Model.HouseNumber" />
+  </div>
+  <div class = "form-group">
+    <input type="text" class="form-control" asp-for="City" placeholder="Enter your city" value="@Model.City" />
+  </div>
+  <div class = "form-group">
+    <select class="form-control" asp-for="Country" placeholder="Choose your country" value="@Model.Country" >
+    @await Html.PartialAsync("~/Views/Shared/CountrySelect.cshtml")
+    </select>
+  </div>
+  <div class = "form-group">
+    <input type="number" class="form-control" asp-for="ZIP" placeholder="Enter your ZIP / Postcode" value="@Model.ZIP" />
+  </div>
+
   <div class = "form-group">
     <input type="submit"  class="btn btn-default" value="update" />
   </div>

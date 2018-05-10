@@ -8,26 +8,25 @@
                 <th>Unit Price</th>
                 <th>Total Price</th>
             </tr>
+            @{
+                double bookTotal = 0;
+                double total = 0;
+            }
             @foreach(var item in ViewBag.cart)
             {
                 <tr>
                 <td>@item.Book.Title</td>
-                <td><input type="number" class="form-control" id="exampleInputQuantity" value="@item.Quantity"></td>
-                <td>@item.Book.Price</td>
-                <td></td>
+                <td><input type="number" class="form-control" id="inputQuantity" min="1" value="@item.Quantity"></td>
+                <td id="bookPrice">@item.Book.Price</td>
+                @{bookTotal += (item.Book.Price * item.Quantity);}
+                <td id="cart-unit-total">@bookTotal</td>
                 </tr>
+                bookTotal = 0;
+                total += (item.Book.Price * item.Quantity);
             }
             <tr>
-                <th colspan="3"><span class="pull-right">Sub Total</span></th>
-                <th></th>
-            </tr>
-            <tr>
-                <th colspan="3"><span class="pull-right">VAT 20%</span></th>
-                <th></th>
-            </tr>
-            <tr>
                 <th colspan="3"><span class="pull-right">Total</span></th>
-                <th></th>
+                <th>@total</th>
             </tr>
             <tr>
                 <td><a href="#" class="btn btn-primary">Continue Shopping</a></td>
@@ -46,7 +45,7 @@
                 <th>Price</th>
                 <th>Quantity</th>
             </tr>
-            @{double total = 0;}
+            @{double nexttotal = 0;}
             @foreach (var item in ViewBag.cart)
             {
             <tr>
@@ -56,10 +55,10 @@
             <td>@item.Book.Price</td>
             <td>@item.Quantity</td>
             </tr>
-                total += item.Book.Price;
+                nexttotal += item.Book.Price;
             }
         </table>
-        <h2 id="price-total">Total: <b>@total</b></h2>
+        <h2 id="price-total">Total: <b>@nexttotal</b></h2>
         <button><a>Go to checkout</a></button>
     </div>
 </div>
