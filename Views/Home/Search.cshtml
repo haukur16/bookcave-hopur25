@@ -10,7 +10,13 @@
         }
         </datalist> 
     <label for="authorSearch">Author: </label>
-    <input name="authorSearch" id="author-search" placeholder="Enter author..">
+    <input name="authorSearch" id="author-search" placeholder="Enter author.." list="Authors">
+        <datalist id="Authors">
+        @foreach(var book in @Model)
+        {
+            <option>@book.Author</option>
+        }
+        </datalist> 
 
     <div class="select">
         <label for="filterGenre">Genre:</label>
