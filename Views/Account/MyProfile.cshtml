@@ -2,32 +2,69 @@
 
 <form asp-action="MyProfile" asp-controller="Account" class ="form-horizontal" method="POST"> 
   <div class = "form-group">
+    <label for="FirstName" >First name</label>
     <input type="text" autofocus="autofocus" class="form-control" asp-for="FirstName" placeholder="Enter your first name" value="@Model.FirstName" />
   </div>
+
   <div class = "form-group">
+    <label for="LastName" >Last Name</label>
     <input type="text"  class="form-control" asp-for="LastName" placeholder="Enter your last name" value="@Model.LastName" />
   </div>
+
   <div class = "form-group">
+    <label for="Avatar" >Select avatar</label>
+    <div class="avatar-showcase">
+      <p>1</p>
+      <img src="~/images/avatar_1.png">
+      <p>2</p>
+      <img src="~/images/avatar_2.png">
+      <p>3</p>
+      <img src="~/images/avatar_3.png">
+      <p>4</p>
+      <img src="~/images/avatar_4.png">
+    </div>
+    <select id="select-avatar" class="form-control" asp-for="Avatar" value="@Model.Avatar" >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+
+  <div class = "form-group">
+    <label for="FavoriteBook" >Favorite book</label>
     <input type="text" class="form-control" asp-for="FavoriteBook" placeholder="Enter your favorite book" value="@Model.FavoriteBook" />
   </div>
+
   <div class = "form-group">
+    <label for="Age" >Age</label>
     <input type="number" min="0" class="form-control" asp-for="Age" placeholder="Enter your age" value="@Model.Age" />
   </div>
+
   <div class = "form-group">
+    <label for="StreetName" >Street name</label>
     <input type="text" class="form-control" asp-for="StreetName" placeholder="Enter your street name" value="@Model.StreetName" />
   </div>
+
   <div class = "form-group">
+    <label for="HouseNumber" >House number</label>
     <input type="number" class="form-control" asp-for="HouseNumber" placeholder="Enter your house number" value="@Model.HouseNumber" />
   </div>
+
   <div class = "form-group">
+    <label for="City" >City</label>
     <input type="text" class="form-control" asp-for="City" placeholder="Enter your city" value="@Model.City" />
   </div>
+
   <div class = "form-group">
+    <label for="Country" >Country</label>
     <select class="form-control" asp-for="Country" placeholder="Choose your country" value="@Model.Country" >
     @await Html.PartialAsync("~/Views/Shared/CountrySelect.cshtml")
     </select>
   </div>
+
   <div class = "form-group">
+    <label for="ZIP" >ZIP / Postcode</label>
     <input type="number" class="form-control" asp-for="ZIP" placeholder="Enter your ZIP / Postcode" value="@Model.ZIP" />
   </div>
 

@@ -97,7 +97,13 @@ namespace BookCave.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 FavoriteBook = user.FavoriteBook,
-                Age = user.Age
+                Age = user.Age,
+                Avatar = user.Avatar,
+                StreetName = user.StreetName,
+                HouseNumber = user.HouseNumber,
+                City = user.City,
+                Country = user.Country,
+                ZIP = user.ZIP
             });
         }
         [Authorize]
@@ -109,7 +115,13 @@ namespace BookCave.Controllers
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
             user.Age = model.Age;
+            user.Avatar = model.Avatar;
             user.FavoriteBook = model.FavoriteBook;
+            user.StreetName = model.StreetName;
+            user.HouseNumber = model.HouseNumber;
+            user.City = model.City;
+            user.Country = model.Country;
+            user.ZIP = model.ZIP;
 
             await _userManager.UpdateAsync(user);
 
