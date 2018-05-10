@@ -75,11 +75,24 @@ namespace BookCave.Controllers
             
         }
 
-        public IActionResult ViewProfile()
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> ViewProfile()
         {
-            //var profile = _userManager.GetUserInfo();
+            var user = await _userManager.GetUserAsync(User);
 
-            return View();
+            return View(new ProfileViewModel {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                FavoriteBook = user.FavoriteBook,
+                Age = user.Age,
+                Avatar = user.Avatar,
+                StreetName = user.StreetName,
+                HouseNumber = user.HouseNumber,
+                City = user.City,
+                Country = user.Country,
+                ZIP = user.ZIP
+            });
         }
         
 
