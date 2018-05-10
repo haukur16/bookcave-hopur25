@@ -18,5 +18,14 @@ namespace BookCave.Services
 
             return reviews;
         }
+
+		public void CreateReview(BookReviewModel model)
+		{
+			try
+			{
+				_reviewsRepo.CreateReview(model);
+			}
+			catch {}
+		}
     }
 }

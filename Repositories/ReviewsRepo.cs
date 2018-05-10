@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using BookCave.Data;
@@ -27,5 +28,18 @@ namespace BookCave.Repositories
                   }).ToList();
       return reviews;
     }
-  }
+
+		internal void CreateReview(BookReviewModel model)
+		{
+			var review = new BookReviews
+			{
+				BookId = model.BookId,
+				UserId = model.UserId,
+				BookReview = model.BookReview,
+				UserRating = model.UserRating
+			};
+			_db.BookReviews.Add(review);
+			_db.SaveChanges();
+		}
+	}
 }

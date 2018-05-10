@@ -1,0 +1,10 @@
+@model authentication_repo.Models.ViewModels.ProfileViewModel
+@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims;
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    var claim = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(c => c.Type == "Email")?.Value;
+}
+
+<p>@claim</p>

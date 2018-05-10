@@ -29,8 +29,14 @@ namespace BookCave.Migrations.AuthenticationDb
 
                     b.Property<int>("Age");
 
+                    b.Property<int>("Avatar");
+
+                    b.Property<string>("City");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<string>("Country");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
@@ -40,6 +46,8 @@ namespace BookCave.Migrations.AuthenticationDb
                     b.Property<string>("FavoriteBook");
 
                     b.Property<string>("FirstName");
+
+                    b.Property<int>("HouseNumber");
 
                     b.Property<string>("LastName");
 
@@ -61,10 +69,14 @@ namespace BookCave.Migrations.AuthenticationDb
 
                     b.Property<string>("SecurityStamp");
 
+                    b.Property<string>("StreetName");
+
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
+
+                    b.Property<string>("ZIP");
 
                     b.HasKey("Id");
 
@@ -77,6 +89,24 @@ namespace BookCave.Migrations.AuthenticationDb
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("BookCave.Models.ViewModels.BookReviewModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BookId");
+
+                    b.Property<string>("BookReview");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<int>("UserRating");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BookReviewModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

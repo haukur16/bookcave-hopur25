@@ -68,7 +68,7 @@
                 <p>Rating: @book.Rating</p>
                 <div class="price-and-cart">
                     <p id="index-price">$@book.Price</p>
-                    <button id="add-to-cart">Add to cart</button>
+                    <button id="add-to-cart"><a asp-controller="cart" asp-action="buy" asp-route-id="@book.BookId">Add to cart</a></button>
                 </div>
             </div>
         </div>
