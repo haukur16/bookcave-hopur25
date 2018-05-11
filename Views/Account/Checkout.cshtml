@@ -10,6 +10,9 @@
   <p>@Model.ZIP</p>
   <p>@Model.UserId</p>
 
+  <form asp-controller="Account" asp-action="MyProfile" method="get">
+    <input type="submit" value="Edit">
+  </form>
 
   <button><a asp-controller="Account" asp-action="Checkout" method="POST">Order</a></button>
 </div>

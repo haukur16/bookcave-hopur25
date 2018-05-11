@@ -4,6 +4,7 @@
         <tbody>
             <tr>
                 <th>Item</th>
+                <th>Action</th>
                 <th>QTY</th>
                 <th>Unit Price</th>
                 <th>Total Price</th>
@@ -16,6 +17,11 @@
             {
                 <tr>
                 <td>@item.Book.Title</td>
+                <td>
+                    <form asp-controller="cart" asp-action="remove" asp-route-id="@item.Book.Id">
+                        <input type="submit" value="Remove">
+                    </form>
+                </td>
                 <td><input type="number" class="form-control" id="inputQuantity" min="1" value="@item.Quantity"></td>
                 <td id="bookPrice">@item.Book.Price</td>
                 @{bookTotal += (item.Book.Price * item.Quantity);}
@@ -25,12 +31,12 @@
                 total += (item.Book.Price * item.Quantity);
             }
             <tr>
-                <th colspan="3"><span class="pull-right">Total</span></th>
+                <th colspan="4"><span class="pull-right">Total</span></th>
                 <th>@total</th>
             </tr>
             <tr>
-                <td><a href="#" class="btn btn-primary">Continue Shopping</a></td>
-                <td colspan="3"><a href="#" class="pull-right btn btn-success">Checkout</a></td>
+                <td><a asp-controller="Home" asp-action="Index" method="GET" class="btn btn-primary">Continue Shopping</a></td>
+                <td colspan="4"><a asp-controller="Account" asp-action="Checkout" method="GET" class="pull-right btn btn-success">Checkout</a></td>
             </tr>
         </tbody>
     </table>

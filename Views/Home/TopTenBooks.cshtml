@@ -11,6 +11,9 @@
                 <h2><a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId">@book.Title</a> (@book.ReleseYear) @book.Rating</h2>
                 <p><b>Genre:</b> @book.Genre</p>
                 <p><b>Author:</b> <a asp-controller="Home" asp-action="Search" asp-route-titleSearch="" asp-route-authorSearch="@book.Author" asp-route-filterGenre="" asp-route-rating="" asp-route-orderBy="Releaseyear">@book.Author</a></p>
+                <form asp-controller="cart" asp-action="buy" asp-route-id="@book.BookId">
+                    <input id="add-to-cart-btn" type="submit" value="Add to cart">
+                </form>
             </div>
         </div>
         <hr>
