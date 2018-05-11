@@ -10,7 +10,7 @@
             <div class="top-ten-list-info">
                 <h2><a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId">@book.Title</a> (@book.ReleseYear) @book.Rating</h2>
                 <p><b>Genre:</b> @book.Genre</p>
-                <a asp-controller="Home" asp-action="Details" asp-route-id="@book.BookId"><p><b>Author:</b> @book.Author</p></a>
+                <p><b>Author:</b> <a asp-controller="Home" asp-action="Search" asp-route-titleSearch="" asp-route-authorSearch="@book.Author" asp-route-filterGenre="" asp-route-rating="" asp-route-orderBy="Releaseyear">@book.Author</a></p>
             </div>
         </div>
         <hr>

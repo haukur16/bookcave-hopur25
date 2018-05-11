@@ -4,7 +4,35 @@
 @inject SignInManager<ApplicationUser> SignInManager
 
 @{
-    var claim = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(c => c.Type == "Email")?.Value;
+    var claim = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(c => c.Type == "Name")?.Value;
 }
 
-<p>@claim</p>
+<h2>Account</h2>
+<div class="account-info">
+    <p><b>Account name: </b>@claim</p>
+    @{
+        if (@Model.Avatar == 1){<b>Avatar: </b><img src="~/images/avatar_1.png">}
+        else if (@Model.Avatar == 2){<b>Avatar: </b><img src="~/images/avatar_2.png">}
+        else if (@Model.Avatar == 3){<b>Avatar: </b><img src="~/images/avatar_3.png">}
+        else if (@Model.Avatar == 4){<b>Avatar: </b><img src="~/images/avatar_4.png">}
+        else {<b>No avatar selected</b>}
+    }
+    <p><b>Favorite book: </b>@Model.FavoriteBook</p>
+    <p><b>Age: </b>@Model.Age</p>
+</div>
+
+<h2>Billing Info</h2>
+
+<div class="billing-info">
+    <p><b>First name: </b>@Model.FirstName</p>
+    <p><b>Last name: </b>@Model.LastName</p>
+    <p><b>Street: </b>@Model.StreetName</p>
+    <p><b>House number: </b>@Model.HouseNumber</p>
+    <p><b>City: </b>@Model.City</p>
+    <p><b>Country: </b>@Model.Country</p>
+    <p><b>ZIP: </b>@Model.ZIP </p>
+</div>
+
+<form asp-controller="Account" asp-action="MyProfile" method="get">
+    <input type="submit" value="Edit">
+</form>
