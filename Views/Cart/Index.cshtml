@@ -22,7 +22,20 @@
                         <input type="submit" value="Remove">
                     </form>
                 </td>
-                <td><input type="number" class="form-control" id="inputQuantity" min="1" value="@item.Quantity"></td>
+                <td class="QTY">
+                    <b>@item.Quantity</b>
+                    <form asp-controller="cart" asp-action="Increase" asp-route-id="@item.Book.Id">
+                        <input type="submit" value="+1"/>
+                    </form>
+                    @{
+                        if(item.Quantity > 1)
+                        {
+                            <form asp-controller="cart" asp-action="Decrease" asp-route-id="@item.Book.Id">
+                                <input type="submit" value="-1"/>
+                            </form>
+                        }
+                    }
+                </td>
                 <td id="bookPrice">@item.Book.Price</td>
                 @{bookTotal += (item.Book.Price * item.Quantity);}
                 <td id="cart-unit-total">@bookTotal</td>
@@ -40,31 +53,4 @@
             </tr>
         </tbody>
     </table>
-<div>
-    <div class="cart-page">
-        <h3>Cart Info</h3>
-        <table class="cart-table">
-            <tr>
-                <th>Action</th>
-                <th>Photo</th>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Quantity</th>
-            </tr>
-            @{double nexttotal = 0;}
-            @foreach (var item in ViewBag.cart)
-            {
-            <tr>
-            <td><button><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Book.Id">Remove</a></button></td>
-            <td><img src="@item.Book.Photo" width="50"></td>
-            <td>@item.Book.Title</td>
-            <td>@item.Book.Price</td>
-            <td>@item.Quantity</td>
-            </tr>
-                nexttotal += item.Book.Price;
-            }
-        </table>
-        <h2 id="price-total">Total: <b>@nexttotal</b></h2>
-        <button><a asp-controller="Account" asp-action="Checkout" method="GET">Go to checkout</a></button>
-    </div>
 </div>
