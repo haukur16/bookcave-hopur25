@@ -405,7 +405,7 @@
     display: inline-block;
  }
 
- .container form input{
+ .table-striped form input{
     background-color: #222222;
     border-color: #22222231;
     color: white;
