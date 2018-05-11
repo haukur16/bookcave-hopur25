@@ -15,14 +15,15 @@ namespace BookCave.Controllers
   public class CartController : Controller
     {
         private DataContext db = new DataContext();
-        private readonly UserManager<ApplicationUser> _signinUser;
+
         [Route("index")]
         public IActionResult Index()
         {
             var cart = SessionHelpers.GetObjectFromJson<List<Cart>>(HttpContext.Session,"cart");
             ViewBag.cart = cart;
-            ViewBag.total = cart.Sum(i => i.Book.Price * i.Quantity);
+            //ViewBag.total = cart.Sum(i => i.Book.Price * i.Quantity);
             return View();
+            
         }
         [Route("buy/{id}")]
         public IActionResult Buy(int id)
