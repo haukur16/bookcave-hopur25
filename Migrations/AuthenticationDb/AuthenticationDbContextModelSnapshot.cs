@@ -20,6 +20,32 @@ namespace BookCave.Migrations.AuthenticationDb
                 .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("BookCave.Data.EntityModels.Book", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AuthorId");
+
+                    b.Property<string>("Genre");
+
+                    b.Property<string>("Photo");
+
+                    b.Property<double>("Price");
+
+                    b.Property<double>("Rating");
+
+                    b.Property<int>("ReleseYear");
+
+                    b.Property<string>("Title");
+
+                    b.Property<string>("details");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Book");
+                });
+
             modelBuilder.Entity("BookCave.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -73,6 +99,8 @@ namespace BookCave.Migrations.AuthenticationDb
 
                     b.Property<bool>("TwoFactorEnabled");
 
+                    b.Property<string>("UserId");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
@@ -91,6 +119,26 @@ namespace BookCave.Migrations.AuthenticationDb
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("BookCave.Models.Cart", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("BookId");
+
+                    b.Property<int?>("OrderViewModelId");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("OrderViewModelId");
+
+                    b.ToTable("Cart");
+                });
+
             modelBuilder.Entity("BookCave.Models.ViewModels.BookReviewModel", b =>
                 {
                     b.Property<int>("Id")
@@ -107,6 +155,34 @@ namespace BookCave.Migrations.AuthenticationDb
                     b.HasKey("Id");
 
                     b.ToTable("BookReviewModel");
+                });
+
+            modelBuilder.Entity("BookCave.Models.ViewModels.OrderViewModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CartId");
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<int>("HouseNumber");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("StreetName");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("ZIP");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OrderViewModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -215,6 +291,17 @@ namespace BookCave.Migrations.AuthenticationDb
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("BookCave.Models.Cart", b =>
+                {
+                    b.HasOne("BookCave.Data.EntityModels.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId");
+
+                    b.HasOne("BookCave.Models.ViewModels.OrderViewModel")
+                        .WithMany("Carts")
+                        .HasForeignKey("OrderViewModelId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

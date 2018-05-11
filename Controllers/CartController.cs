@@ -6,8 +6,8 @@ using BookCave.Data;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System;
-using BookCave.Models.EntityModels;
 using BookCave.Models;
+using BookCave.Data.EntityModels;
 
 namespace BookCave.Controllers
 {

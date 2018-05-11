@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using authentication_repo.Models.ViewModels;
@@ -6,6 +7,7 @@ using BookCave.Data.EntityModels;
 using BookCave.Helpers;
 using BookCave.Models;
 using BookCave.Models.ViewModels;
+using BookCave.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,11 +19,14 @@ namespace BookCave.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
+        private OrderService _orderService;
+        private List<Cart> _cart;
 
         public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _orderService = new OrderService();
         } 
 
         public IActionResult Register()
@@ -124,6 +129,45 @@ namespace BookCave.Controllers
             user.ZIP = model.ZIP;
 
             await _userManager.UpdateAsync(user);
+
+            return View(model);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Checkout()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var cart = _orderService.GetBooksInOrder();
+
+            return View(new OrderViewModel {
+                UserId = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                StreetName = user.StreetName,
+                HouseNumber = user.HouseNumber,
+                City = user.City,
+                Country = user.Country,
+                ZIP = user.ZIP,
+            });
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Checkout(OrderViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            model.UserId = user.Id;
+            model.FirstName = user.FirstName;
+            model.LastName = user.LastName;
+            model.StreetName = user.StreetName;
+            model.HouseNumber = user.HouseNumber;
+            model.City = user.City;
+            model.Country = user.Country;
+            model.ZIP = user.ZIP;
+            
+
+            _orderService.CreateOrder(user, model);
 
             return View(model);
         }

@@ -98,6 +98,32 @@ namespace BookCave.Migrations
                     b.ToTable("BookReviews");
                 });
 
+            modelBuilder.Entity("BookCave.Data.EntityModels.Orders", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<int>("HouseNumber");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("StreetName");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("ZIP");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("BookCave.Data.EntityModels.UserLogin", b =>
                 {
                     b.Property<int>("Id")
@@ -110,6 +136,38 @@ namespace BookCave.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserLogins");
+                });
+
+            modelBuilder.Entity("BookCave.Models.Cart", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("BookId");
+
+                    b.Property<int>("OrderId");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("BookCave.Models.Cart", b =>
+                {
+                    b.HasOne("BookCave.Data.EntityModels.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId");
+
+                    b.HasOne("BookCave.Data.EntityModels.Orders", "Order")
+                        .WithMany("Carts")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
