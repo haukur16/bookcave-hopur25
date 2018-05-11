@@ -42,8 +42,8 @@ namespace BookCave.Repositories
           Quantity = a.Quantity,
           Order = a.Order
         };
-        _db.Carts.Add(car);
-        _db.SaveChanges();
+        //_db.Carts.Add(car);
+        //_db.SaveChanges();
       }
     }
 	}

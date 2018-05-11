@@ -181,11 +181,11 @@ namespace BookCave.Controllers
             model.Country = user.Country;
             model.ZIP = user.ZIP;
             model.Carts = cart;
-
+            
 
             _orderService.CreateOrder(user, model, cart);
 
-            return View(model);
+            return View("OrderComplete"); 
         }
     }
 }
