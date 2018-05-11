@@ -48,7 +48,7 @@
 
   <div class = "form-group">
     <label for="HouseNumber" >House number</label>
-    <input type="number" class="form-control" asp-for="HouseNumber" placeholder="Enter your house number" value="@Model.HouseNumber" />
+    <input type="number" class="form-control" min="1" asp-for="HouseNumber" placeholder="Enter your house number" value="@Model.HouseNumber" />
   </div>
 
   <div class = "form-group">
