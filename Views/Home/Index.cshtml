@@ -53,7 +53,6 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-    <h3 class="boldText">Popular books</h3>
     </br>
 <div id="booksFront">
     @foreach(var book in @Model)
@@ -68,7 +67,9 @@
                 <p>Rating: @book.Rating</p>
                 <div class="price-and-cart">
                     <p id="index-price">$@book.Price</p>
-                    <button id="add-to-cart"><a asp-controller="cart" asp-action="buy" asp-route-id="@book.BookId">Add to cart</a></button>
+                    <form asp-controller="cart" asp-action="buy" asp-route-id="@book.BookId">
+                        <input id="add-to-cart" type="submit" value="Add to cart">
+                    </form>
                 </div>
             </div>
         </div>

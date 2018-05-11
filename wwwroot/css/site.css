@@ -21,6 +21,8 @@
     height: auto;
 }
 
+/* Search bar in header for quick search */
+
 #layoutsearch {
     float: right;
     width: 200px;
@@ -42,11 +44,11 @@
     background-color: white;
 }
 
-/*.container {
-    height: 75px;
-}*/
+.dropdown-menu {
+    background-color: #222222;
+}
 
-
+/* Bookcave logo in header */
 
 .navbar-brand {
     padding: 10px;
@@ -63,6 +65,7 @@
 }
 
 /* Carousel */
+
 .carousel-caption p {
     font-size: 20px;
     line-height: 1.4;
@@ -96,6 +99,8 @@
     }
 }
 
+/* Footer in Layout W/ social media links and about us */
+
 #footer-copyright {
     float: right;
 }
@@ -116,17 +121,19 @@
     width: 60px;
 }
 
+/* Book table on Index and catalgue search */
+
 .index-books {
     display: inline-block;
     width: 24%;
     height: 450px;
-    border: 2px solid rgb(175, 22, 22)
+    border: 2px solid #2222227c;
+    border-radius: 5px;
 }
 
 #index-cover {
     width:  100%;
     height: 65%;
-    border: 2px solid rgb(17, 219, 135);
 }
 
 #index-cover img{
@@ -135,8 +142,6 @@
     object-fit: contain;
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
-    border: 2px solid rgb(145, 17, 219);
-
 }
 
 #index-cover img:hover {
@@ -147,7 +152,8 @@
 .index-details {
     height: auto;
     min-height: 35%;
-    border: 2px solid rgb(17, 20, 219)
+    border: 2px solid #2222227c;
+    border-radius: 5px;
 }
 
 #index-book-title {
@@ -155,25 +161,6 @@
     width: 100%; 
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-#details-cover {
-    width: 30%;
-    height: 100%;
-    object-fit: contain;
-    border: 2px solid rgb(175, 22, 22)
-}
-
-.details-page {
-    border: 2px solid rgb(28, 194, 36);
-}
-
-.book-details {
-    float: right;
-    border: 2px solid rgb(165, 175, 22);
-    width: 68%;
-    height: 100%;
-    
 }
 
 #add-to-cart {
@@ -189,6 +176,75 @@
 #add-to-cart:hover {
     background: linear-gradient(#222222, #222222ce);
 }
+
+.index-books{
+    display: none;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+#booksFront{
+    display: block;
+}
+.boldText{
+    font-weight: 200;
+}
+
+/* Button on book table to load more books w/ animation */
+
+#moreBooksButton {
+    padding: 10px;
+    display: block;
+    background-color: #33739E;
+    color: #fff;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    -moz-transition: all 600ms ease-in-out;
+    -o-transition: all 600ms ease-in-out;
+}
+
+#moreBooksButton:hover {
+    background-color: #fff;
+    color: #33739E;
+}
+
+/* layout of the Deatails page */
+
+#details-cover {
+    width: 30%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.book-details {
+    float: right;
+    border: 2px solid #2222227c;
+    border-radius: 5px;
+    width: 68%;
+    height: 100%; 
+}
+
+#detail-price{
+    margin: 10px 10px;
+    font-size: 30px;
+    color: coral;
+    display: inline;
+}
+
+#add-to-cart-btn{
+    display:  inline-block;
+    width: 200px;
+    height: 40px;
+    margin: 10px 10px;
+    color: #fff;
+    background-color: #222222;
+    border-color: #22222231;
+}
+
+/* Catalog search */
 
 .detailed-search input{
     width: 100%;
@@ -236,53 +292,23 @@
     width: 100%;
 }
 
-.index-books{
-    display: none;
-    padding: 10px;
-    margin-bottom: 5px;
-}
-#booksFront{
-    display: block;
-}
-.boldText{
-    font-weight: 200;
-}
-#moreBooksButton {
-    padding: 10px;
-    display: block;
-    background-color: #33739E;
-    color: #fff;
-    border-width: 0 1px 1px 0;
-    border-style: solid;
-    border-color: #fff;
-    box-shadow: 0 1px 1px #ccc;
-    transition: all 600ms ease-in-out;
-    -webkit-transition: all 600ms ease-in-out;
-    -moz-transition: all 600ms ease-in-out;
-    -o-transition: all 600ms ease-in-out;
-}
-
-#moreBooksButton:hover {
-    background-color: #fff;
-    color: #33739E;
-}
+/* Topten List page layout */
 
 .top-ten-list {
     width: 100%;
     height: 200px;
     overflow: auto;
-    border: 2px solid rgb(175, 22, 22);
+    border: 2px solid #22222279;
+    border-radius: 5px;
 }
 
 #top-ten-list-cover {
     display: inline-block;
-    border: 2px solid rgb(37, 22, 175);
     width:  15%;
     height: 100%;
 }
 
 #top-ten-list-cover img{
-    border: 2px solid rgb(35, 175, 22);
     width:  100%;
     height: 100%;
     object-fit: contain;
@@ -290,19 +316,11 @@
 
 .top-ten-list-info {
     float: right;
-    border: 2px solid rgb(165, 175, 22);
     width: 85%;
     height: 100%;
 }
 
-#moreBooksButton:hover {
-    background-color: #fff;
-    color: #33739E;
-}
-
-.dropdown-menu {
-    background-color: #222222;
-}
+/* Reviews appear on the details page */
 
 .reviews {
     display: inline-block;
@@ -358,22 +376,7 @@
     position: relative;
 }
 
-#detail-price{
-    margin: 10px 10px;
-    font-size: 30px;
-    color: coral;
-    display: inline;
-}
-
-#add-to-cart-btn{
-    display:  inline-block;
-    width: 200px;
-    height: 40px;
-    margin: 10px 10px;
-    color: #fff;
-    background-color: #222222;
-    border-color: #22222231;
-}
+/* Cart page Layout*/
 
 .cart-table {
     width: 100%;
@@ -385,21 +388,6 @@
     text-align: center;
 }
 
-#favButton{
-    display: inline-block;
-    width: 20px;
-    height: 10px;
-}
-#fav-button{
-    display:  inline-block;
-    width: 200px;
-    height: 40px;
-    margin: 10px 10px;
-    color: #fff;
-    background-color: #222222;
-    border-color: #222222;
-}
-
 .cart-table a{
     text-decoration: none;
 }
@@ -408,6 +396,16 @@
     border: 1px solid #22222270;
     font-size: 20px;
  }
+
+ .QTY b {
+    margin-right: 10px;
+ }
+
+ .QTY form{
+    display: inline-block;
+ }
+
+ /* ViewProfile Page */
 
  .avatar-showcase p {
     display: inline-block;

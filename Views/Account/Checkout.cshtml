@@ -1,0 +1,18 @@
+@model BookCave.Models.ViewModels.OrderViewModel
+
+<div>
+  <p>@Model.FirstName</p>
+  <p>@Model.LastName</p>
+  <p>@Model.StreetName</p>
+  <p>@Model.HouseNumber</p>
+  <p>@Model.City</p>
+  <p>@Model.Country</p>
+  <p>@Model.ZIP</p>
+  <p>@Model.UserId</p>
+
+  <form asp-controller="Account" asp-action="MyProfile" method="get">
+    <input type="submit" value="Edit Info">
+  </form>
+
+  <button><a asp-controller="Account" asp-action="Checkout" method="POST">Order</a></button>
+</div>

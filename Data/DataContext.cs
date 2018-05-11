@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using BookCave.Data.EntityModels;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using BookCave.Models;
 
 namespace BookCave.Data
 {
@@ -11,7 +12,9 @@ namespace BookCave.Data
     public DbSet<Book> Books {get; set; }
     public DbSet<UserLogin> UserLogins {get; set; }
     public DbSet<Billinginfo> BillingInfo {get; set; }
-    public DbSet<BookReviews> BookReviews {get; set; } 
+    public DbSet<BookReviews> BookReviews {get; set; }
+    public DbSet<Orders> Orders {get; set; }
+    public DbSet<Cart> Carts { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -14,5 +14,6 @@ namespace BookCave.Data
         }
 
         public DbSet<BookCave.Models.ViewModels.BookReviewModel> BookReviewModel { get; set; }
+        public DbSet<BookCave.Models.ViewModels.OrderViewModel> OrderViewModel { get; set; }
     }
 }
