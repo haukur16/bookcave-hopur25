@@ -20,8 +20,8 @@
         <form asp-action="MyProfile" asp-controller="Account" method="GET">
           <li><button class="btn btn-link navbar-btn navbar-link">User Settings</button></li>
         </form>
-        <form asp-action="" asp-controller="Account">
-          <li><button class="btn btn-link navbar-btn navbar-link">Previous orders</button></li>
+        <form asp-controller="Cart" asp-action="Index">
+          <li><button class="btn btn-link navbar-btn navbar-link">Cart</button></li>
         </form>
           <li role="separator" class="divider"></li>
         <form asp-action="SignOut" asp-controller="Account" method="POST">

@@ -12,6 +12,7 @@
             @{
                 double bookTotal = 0;
                 double total = 0;
+                int quant = 0;
             }
             @foreach(var item in ViewBag.cart)
             {
@@ -42,6 +43,7 @@
                 </tr>
                 bookTotal = 0;
                 total += (item.Book.Price * item.Quantity);
+                quant = item.Quantity;
             }
             <tr>
                 <th colspan="4"><span class="pull-right">Total</span></th>
@@ -49,7 +51,12 @@
             </tr>
             <tr>
                 <td><a asp-controller="Home" asp-action="Index" method="GET" class="btn btn-primary">Continue Shopping</a></td>
-                <td colspan="4"><a asp-controller="Account" asp-action="Checkout" method="GET" class="pull-right btn btn-success">Checkout</a></td>
+                @{
+                    if(quant > 0)
+                    {
+                        <td colspan="4"><a asp-controller="Account" asp-action="Checkout" method="GET" class="pull-right btn btn-success">Checkout</a></td>
+                    }
+                }
             </tr>
         </tbody>
     </table>
