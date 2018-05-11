@@ -67,9 +67,12 @@ $( document ).ready(function () {
             maximum.css('color','#000');
             theCount.css('font-weight','normal');
         }
+
+        
               
     });
 
-function goBack() {
-        window.history.back();
-}
+/*$('#inputQuantity').keyup(function() {
+    x = document.getElementById("inputQuantity").value;
+
+}*/

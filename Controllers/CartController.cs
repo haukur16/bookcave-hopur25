@@ -49,12 +49,31 @@ namespace BookCave.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        [Route("remove/{id}")]
         public IActionResult Remove(int id)
         {
             var cart = SessionHelpers.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
             int index = Exists(cart, id);
             cart.RemoveAt(index);
+            SessionHelpers.SetObjectAsJson(HttpContext.Session, "cart", cart);
+            return RedirectToAction("Index");
+        }
+        [Route("increase/{id}")]
+        public IActionResult Increase(int id)
+        {
+            var cart = SessionHelpers.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
+            int index = Exists(cart, id);
+            cart[index].Quantity++;
+            SessionHelpers.SetObjectAsJson(HttpContext.Session, "cart", cart);
+            return RedirectToAction("Index");
+        }
+
+                [Route("decrease/{id}")]
+        public IActionResult Decrease(int id)
+        {
+            var cart = SessionHelpers.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
+            int index = Exists(cart, id);
+            cart[index].Quantity--;
             SessionHelpers.SetObjectAsJson(HttpContext.Session, "cart", cart);
             return RedirectToAction("Index");
         }
@@ -67,7 +86,6 @@ namespace BookCave.Controllers
                 {
                     return i;
                 }
-
             }
             return -1;
         }
