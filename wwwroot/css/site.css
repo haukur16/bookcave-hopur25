@@ -405,6 +405,12 @@
     display: inline-block;
  }
 
+ .container form input{
+    background-color: #222222;
+    border-color: #22222231;
+    color: white;
+ }
+
  /* ViewProfile Page */
 
  .avatar-showcase p {

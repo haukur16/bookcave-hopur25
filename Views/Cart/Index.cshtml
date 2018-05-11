@@ -23,18 +23,18 @@
                     </form>
                 </td>
                 <td class="QTY">
-                <b>@item.Quantity</b>
-                <form asp-controller="cart" asp-action="Increase" asp-route-id="@item.Book.Id">
-                    <input type="submit" value="+1"/>
-                </form>
-                @{
-                    if(item.Quantity > 1)
-                    {
-                        <form asp-controller="cart" asp-action="Decrease" asp-route-id="@item.Book.Id">
-                            <input type="submit" value="-1"/>
-                        </form>
+                    <b>@item.Quantity</b>
+                    <form asp-controller="cart" asp-action="Increase" asp-route-id="@item.Book.Id">
+                        <input type="submit" value="+1"/>
+                    </form>
+                    @{
+                        if(item.Quantity > 1)
+                        {
+                            <form asp-controller="cart" asp-action="Decrease" asp-route-id="@item.Book.Id">
+                                <input type="submit" value="-1"/>
+                            </form>
+                        }
                     }
-                }
                 </td>
                 <td id="bookPrice">@item.Book.Price</td>
                 @{bookTotal += (item.Book.Price * item.Quantity);}
