@@ -3,47 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using BookCave.Data;
 using BookCave.Data.EntityModels;
+using BookCave.Helpers;
 using BookCave.Models;
 using BookCave.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace BookCave.Repositories
 {
   public class OrderRepo
   {
-      private List<Cart> _cart;
       private DataContext _db;
     public OrderRepo()
     {
-      _cart = new List<Cart>();
       _db = new DataContext();
     }
 
-    public List<Book> GetBooksInOrder()
-    {
-      var orders = (from a in _cart
-                  select new Book
-                  {
-                    Id = a.Book.Id
-                  }).ToList();
-      return orders;
+		public void CreateOrder(ApplicationUser user, OrderViewModel model, List<Cart> cart)
+        {
+            var order = new Orders
+            {
+              UserId = user.Id,
+              FirstName = user.FirstName,
+              LastName = user.LastName,
+              StreetName = user.StreetName,
+              HouseNumber = user.HouseNumber,
+              City = user.City,
+              Country = user.Country,
+              ZIP = user.ZIP
+            };
+          _db.Orders.Add(order);
+          _db.SaveChanges();
+      foreach(var a in cart)
+      {
+        var car = new Cart
+        {
+          Book = a.Book,
+          OrderId = a.OrderId,
+          Quantity = a.Quantity,
+          Order = a.Order
+        };
+        _db.Carts.Add(car);
+        _db.SaveChanges();
+      }
     }
-
-		internal void CreateOrder(ApplicationUser user, OrderViewModel model)
-		{
-			var order = new Orders
-			{
-        UserId = user.Id,
-        FirstName = user.FirstName,
-        LastName = user.LastName,
-        StreetName = user.StreetName,
-        HouseNumber = user.HouseNumber,
-        City = user.City,
-        Country = user.Country,
-        ZIP = user.ZIP,
-        Carts = model.Carts
-			};
-			_db.Orders.Add(order);
-			_db.SaveChanges();
-		}
 	}
 }

@@ -151,7 +151,7 @@ namespace BookCave.Controllers
         public async Task<IActionResult> Checkout()
         {
             var user = await _userManager.GetUserAsync(User);
-            var cart = _orderService.GetBooksInOrder();
+            var cart = SessionHelpers.GetObjectFromJson<List<Cart>>(HttpContext.Session,"cart");
 
             return View(new OrderViewModel {
                 UserId = user.Id,
@@ -162,14 +162,16 @@ namespace BookCave.Controllers
                 City = user.City,
                 Country = user.Country,
                 ZIP = user.ZIP,
+                Carts = cart,
             });
         }
 
-        [Authorize]
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Checkout(OrderViewModel model)
         {
             var user = await _userManager.GetUserAsync(User);
+            var cart = SessionHelpers.GetObjectFromJson<List<Cart>>(HttpContext.Session, "cart");
             model.UserId = user.Id;
             model.FirstName = user.FirstName;
             model.LastName = user.LastName;
@@ -178,9 +180,10 @@ namespace BookCave.Controllers
             model.City = user.City;
             model.Country = user.Country;
             model.ZIP = user.ZIP;
-            
+            model.Carts = cart;
 
-            _orderService.CreateOrder(user, model);
+
+            _orderService.CreateOrder(user, model, cart);
 
             return View(model);
         }

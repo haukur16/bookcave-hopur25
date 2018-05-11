@@ -15,21 +15,10 @@ namespace BookCave.Services
         {
         _orderRepo = new OrderRepo();
         }
-        public List<Book> GetBooksInOrder()
-        {
-            var books = _orderRepo.GetBooksInOrder();
 
-            return books;
+        public void CreateOrder(ApplicationUser user, OrderViewModel model, List<Cart> cart)
+        {
+        _orderRepo.CreateOrder(user, model, cart);
         }
-
-        public void CreateOrder(ApplicationUser user, OrderViewModel model)
-        {
-            try
-            {
-                 _orderRepo.CreateOrder(user, model);
-            }
-            catch {}
-            }
-
-  }
+}
 }

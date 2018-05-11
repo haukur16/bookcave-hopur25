@@ -1,18 +1,20 @@
 @model BookCave.Models.ViewModels.OrderViewModel
 
 <div>
-  <p>@Model.FirstName</p>
-  <p>@Model.LastName</p>
-  <p>@Model.StreetName</p>
-  <p>@Model.HouseNumber</p>
-  <p>@Model.City</p>
-  <p>@Model.Country</p>
-  <p>@Model.ZIP</p>
-  <p>@Model.UserId</p>
+  <div>
+  <p><b>Full Name:</b> @Model.FirstName @Model.LastName</p>
+  <p><b>Street:</b> @Model.StreetName</p>
+  <p><b>House number:</b> @Model.HouseNumber</p>
+  <p><b>City:</b> @Model.City</p>
+  <p><b>Country:</b> @Model.Country</p>
+  <p><b>Zip code:</b> @Model.ZIP</p>
+
 
   <form asp-controller="Account" asp-action="MyProfile" method="get">
     <input type="submit" value="Edit">
   </form>
 
-  <button><a asp-controller="Account" asp-action="Checkout" method="POST">Order</a></button>
+  <form asp-controller="Account" asp-action="Checkout" method="post">
+    <input type="submit" value="Order">
+  </form>
 </div>
